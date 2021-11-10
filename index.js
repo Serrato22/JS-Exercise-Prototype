@@ -126,18 +126,26 @@ Car.prototype.drive = function(distance){
     - Besides the methods on Person.prototype, babies have the ability to `.play()`:
         + Should return a string "Playing with x", x being the favorite toy.
 */
-function Baby() {
+function Baby(name, age, favoriteToy) {
+  Person.call(this, name, age);
+  this.favoriteToy = favoriteToy;
  
+}
+Baby.prototype = Object.create(Person.prototype);
+
+Baby.prototype.play = function(){
+  return `Playing with ${this.favoriteToy}`;
+
 }
 
 
 /* 
   TASK 4
   In your own words explain the four principles for the "this" keyword below:
-  1. 
-  2. 
-  3. 
-  4. 
+  1. Explicit Binding, You can use .call .apply and .bind
+  2. Implicit Binding, Invokes a function in a object using the dot
+  3. Window Binding, Returns the window or global object unless you run strict then it doesnt get the global object it returns undefined.
+  4. New Binding, Makes a new name for an existing function and is a new named object.
 */
 
 
